@@ -1,0 +1,32 @@
+{
+    "id": "d4a85077-1b8e-45be-b308-e1399d3a5eb2",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "fruitHunterBase",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "fruitCatcherTablet",
+        "borderWidth": 2048,
+        "borderHeight": 1536
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "abb0d173-9f4a-4f6a-b3a8-00eab930847c",
+            "label": "text_1",
+            "x": 1029,
+            "y": 472,
+            "text": "New text",
+            "fontSize": "80px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
