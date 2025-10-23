@@ -13,3 +13,34 @@ export const setCookieValue = (key, value, expirationDays = 30) => {
 
     document.cookie = `${key}=${encodeURIComponent(value)}; ${expires}; path=/`;
 };
+
+const isAndroidWebView = () => {
+    return typeof WebNativeInterface !== "undefined";
+};
+
+const isIOSWebView = () => {
+    if (typeof window === "undefined") {
+        return false;
+    }
+
+    return (
+        typeof window.webkit !== "undefined" &&
+        typeof window.webkit.messageHandlers !== "undefined"
+    );
+};
+
+const IS_ANDROID = isAndroidWebView();
+export const IS_IOS = isIOSWebView();
+
+export const onExitGameOnHost = () => {
+    if (IS_ANDROID) {
+        return WebNativeInterface.onExitGame();
+    } else if (IS_IOS) {
+        const keyValuePair = "onExitGame:";
+        return window.webkit.messageHandlers.jsMessageHandler.postMessage(
+            keyValuePair
+        );
+    } else {
+        // alert("Could't detect host os");
+    }
+};

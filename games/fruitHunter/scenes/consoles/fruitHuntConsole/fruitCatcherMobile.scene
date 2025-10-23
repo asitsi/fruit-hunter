@@ -13,23 +13,72 @@
     },
     "displayList": [
         {
-            "type": "Text",
-            "id": "000195e3-bc17-475b-a950-99bf04f8f1b7",
-            "label": "text_1",
-            "x": 1003,
-            "y": 439,
-            "text": "New text",
-            "fontSize": "80px"
+            "type": "Image",
+            "id": "67870f50-f735-4310-8e56-5efb5feabf04",
+            "label": "background",
+            "texture": {
+                "key": "fruit_humter_background_1"
+            },
+            "x": 1258,
+            "y": 347,
+            "scaleX": 2,
+            "scaleY": 2
         },
         {
             "type": "Image",
-            "id": "c56992a3-7751-43cc-84c0-6f513cfcbbfd",
-            "label": "fruitCatcher_banner",
+            "id": "eb8e8f78-f5a7-407f-9bf6-326b58ddf27a",
+            "label": "fruit_hunter_basket_1",
+            "displayName": "fruit_hunter_basket_1",
+            "scope": "CLASS",
             "texture": {
-                "key": "fruitCatcher_banner_1"
+                "key": "fruit_hunter_basket_1"
             },
-            "x": 1220,
-            "y": 530
+            "x": 1250,
+            "y": 931,
+            "scaleX": 2,
+            "scaleY": 2
+        },
+        {
+            "type": "Text",
+            "id": "e9d3dddc-758f-47f5-992d-07a8bd79553a",
+            "label": "fruit_hunter_score",
+            "scope": "CLASS",
+            "x": 2343,
+            "y": 85,
+            "originX": 1,
+            "originY": 0.5,
+            "text": "0",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": "80px",
+            "color": "#043d8c",
+            "strokeThickness": 3
+        },
+        {
+            "type": "Text",
+            "id": "69106521-22df-4d85-bfad-6da9caa8e9c3",
+            "label": "fruit_hunter_score_text",
+            "scope": "CLASS",
+            "x": 1952,
+            "y": 43,
+            "text": "Score:",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": "80px",
+            "color": "#043d8c",
+            "strokeThickness": 3
+        },
+        {
+            "type": "Text",
+            "id": "4133ad46-61e8-4229-af38-660693f06b54",
+            "label": "fruit_hunter_game_timer",
+            "scope": "CLASS",
+            "x": 55,
+            "y": 96,
+            "originY": 0.5,
+            "text": "0",
+            "fontFamily": "Bungee-Regular",
+            "fontSize": "80px",
+            "color": "#043d8c",
+            "strokeThickness": 6
         }
     ],
     "plainObjects": [],

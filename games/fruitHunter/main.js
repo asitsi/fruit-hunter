@@ -55,6 +55,13 @@ const StartGame = (parent) => {
                 // },
             ],
         },
+        physics: {
+            default: "arcade",
+            arcade: {
+                gravity: { x: 0, y: 200 },
+                debug: true,
+            },
+        },
     };
     return new Game({ ...config, parent });
 };

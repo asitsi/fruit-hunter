@@ -2,9 +2,57 @@
     "section1": {
         "files": [
             {
+                "url": "/fonts/Bungee-Regular.ttf",
+                "format": "truetype",
+                "descriptors": {},
+                "type": "font",
+                "key": "Bungee-Regular"
+            },
+            {
+                "url": "/assets/fruitHunter/spritesheets/candy_spritesheet.png",
+                "type": "image",
+                "key": "candy_spritesheet"
+            },
+            {
+                "atlasURL": "/assets/fruitHunter/spritesheets/candy_spritesheet.json",
+                "textureURL": "/assets/fruitHunter/spritesheets/candy_spritesheet.png",
+                "type": "atlas",
+                "key": "candy_spritesheet_1"
+            },
+            {
+                "url": "/assets/fruitHunter/fruit_humter_background.webp",
+                "type": "image",
+                "key": "fruit_humter_background_1"
+            },
+            {
+                "url": "/assets/fruitHunter/fruit_hunter_basket.webp",
+                "type": "image",
+                "key": "fruit_hunter_basket"
+            },
+            {
+                "url": "/assets/fruitHunter/fruit_hunter_basket.webp",
+                "type": "image",
+                "key": "fruit_hunter_basket_1"
+            },
+            {
+                "url": "/assets/fruitHunter/fruit_hunter_candy_background.webp",
+                "type": "image",
+                "key": "fruit_hunter_candy_background"
+            },
+            {
+                "url": "/assets/fruitHunter/fruit_hunter_candy_background.webp",
+                "type": "image",
+                "key": "fruit_hunter_candy_background_1"
+            },
+            {
                 "url": "/assets/fruitHunter/fruitCatcher_banner.png",
                 "type": "image",
                 "key": "fruitCatcher_banner"
+            },
+            {
+                "url": "/assets/fruitHunter/fruitCatcher_banner.png",
+                "type": "image",
+                "key": "fruitCatcher_banner_1"
             }
         ]
     },
