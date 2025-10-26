@@ -1,4 +1,4 @@
-import { onExitGameOnHost, setCookieValue } from "@/libs/Helpers";
+import { getCookieValue, onExitGameOnHost, setCookieValue } from "@/libs/Helpers";
 
 
 export default class fruitHunterBase extends Phaser.Scene {
@@ -43,6 +43,19 @@ export default class fruitHunterBase extends Phaser.Scene {
         this.cursorKey = this.input.keyboard.createCursorKeys();
     }
 
+    registerTouchIterativeButtons() {
+        this.fruit_hunter_retry_game.setInteractive();
+        this.fruit_hunter_back_to_home.setInteractive();
+    }
+
+    defineBasicInteractions() {
+        this.fruit_hunter_retry_game.on("pointerdown", 
+            this.restartGame.bind(this));
+        this.fruit_hunter_back_to_home.on("pointerdown", () => {
+            this.backToHome();
+        });
+    }
+
     async create() {
         this.editorCreate();
         this.initVariables();
@@ -63,13 +76,37 @@ export default class fruitHunterBase extends Phaser.Scene {
         this.physics.add.overlap(this.fruit_hunter_basket_1, this.candyGroup, this.catchCandy, null, this);
 
         this.timedEvent = this.time.delayedCall(30 *1000, this.handleGameExit, [], this);
+
+        // Register interactions for end-of-game UI buttons
+        this.registerTouchIterativeButtons();
+        this.defineBasicInteractions();
     }
 
     handleGameExit() {
         console.log("game exit");
         this.timedEvent.destroy();
         this.gameOver = true;
-        setCookieValue("fruitHunterScore", this.score);
+        this.container_fruit_hunter_score.setVisible(true);
+        const highestScore = getCookieValue("fruitHunterScore");
+        if (this.score > highestScore || !highestScore) {
+            setCookieValue("fruitHunterScore", this.score);
+            this.fruite_hunter_highest_score.setText(this.score);
+        } else {
+            this.fruite_hunter_highest_score.setText(highestScore);
+        }
+        
+        this.fruite_hunter_your_score.setText(this.score);
+        // onExitGameOnHost();
+    }
+
+    restartGame() {
+        console.log("restartGame");
+        this.container_fruit_hunter_score.setVisible(false);
+        this.scene.restart();
+    }
+
+    backToHome() {
+        this.container_fruit_hunter_score.setVisible(false);
         onExitGameOnHost();
     }
 

@@ -25,6 +25,11 @@
                 "key": "fruit_humter_background_1"
             },
             {
+                "url": "/assets/fruitHunter/fruit_hunter_back_to_home.webp",
+                "type": "image",
+                "key": "fruit_hunter_back_to_home"
+            },
+            {
                 "url": "/assets/fruitHunter/fruit_hunter_basket.webp",
                 "type": "image",
                 "key": "fruit_hunter_basket"
@@ -43,6 +48,11 @@
                 "url": "/assets/fruitHunter/fruit_hunter_candy_background.webp",
                 "type": "image",
                 "key": "fruit_hunter_candy_background_1"
+            },
+            {
+                "url": "/assets/fruitHunter/fruit_hunter_retry_game.webp",
+                "type": "image",
+                "key": "fruit_hunter_retry_game"
             },
             {
                 "url": "/assets/fruitHunter/fruitCatcher_banner.png",

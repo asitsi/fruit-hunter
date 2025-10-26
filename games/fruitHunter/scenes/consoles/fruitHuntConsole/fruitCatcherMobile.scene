@@ -79,6 +79,110 @@
             "fontSize": "80px",
             "color": "#043d8c",
             "strokeThickness": 6
+        },
+        {
+            "type": "Container",
+            "id": "c842eb9d-6b6b-4cb7-bdf0-6a01242276eb",
+            "label": "container_fruit_hunter_score",
+            "scope": "CLASS",
+            "x": 1179,
+            "y": 553,
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "bdef4bf4-ca31-4345-a44b-13fab937b11a",
+                    "label": "rectangle_2",
+                    "scope": "CLASS",
+                    "scaleX": 19,
+                    "scaleY": 10,
+                    "isFilled": true,
+                    "fillColor": "#ed8cb3",
+                    "fillAlpha": 0.8,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "da21c8af-afdd-48f8-93c2-75a8b000d4db",
+                    "label": "fruite_hunter_highest_score",
+                    "scope": "CLASS",
+                    "x": 590,
+                    "y": -84,
+                    "text": "0",
+                    "fontFamily": "Bungee-Regular",
+                    "fontSize": "100px",
+                    "color": "#92c024",
+                    "strokeThickness": 10
+                },
+                {
+                    "type": "Text",
+                    "id": "36817e95-c834-439c-b7ab-f3886fc35b55",
+                    "label": "text_3fruite_hunter_highest_score_text",
+                    "x": -192,
+                    "y": -41,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Your Highest Score:",
+                    "fontFamily": "Bungee-Regular",
+                    "fontSize": "120px",
+                    "color": "#92c024",
+                    "strokeThickness": 10
+                },
+                {
+                    "type": "Text",
+                    "id": "521e2b9d-3e12-4ce3-8772-fd7259f67795",
+                    "label": "fruite_hunter_your_score",
+                    "scope": "CLASS",
+                    "x": 344,
+                    "y": -270,
+                    "text": "0",
+                    "fontFamily": "Bungee-Regular",
+                    "fontSize": "100px",
+                    "color": "#043d8c",
+                    "strokeThickness": 6
+                },
+                {
+                    "type": "Text",
+                    "id": "54c2a2c2-647e-4587-a038-458c72e5496d",
+                    "label": "fruite_hunter_your_score_text",
+                    "x": -126,
+                    "y": -225,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Your Score:",
+                    "fontFamily": "Bungee-Regular",
+                    "fontSize": "120px",
+                    "color": "#043d8c",
+                    "strokeThickness": 10
+                },
+                {
+                    "type": "Image",
+                    "id": "2a43b270-c093-4796-b0b4-229d69536b1f",
+                    "label": "fruit_hunter_retry_game",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fruit_hunter_retry_game"
+                    },
+                    "x": -352,
+                    "y": 242,
+                    "scaleX": 0.4,
+                    "scaleY": 0.4
+                },
+                {
+                    "type": "Image",
+                    "id": "3b43c029-3ad5-4149-9a00-406b80aeb746",
+                    "label": "fruit_hunter_back_to_home",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fruit_hunter_back_to_home"
+                    },
+                    "x": 404,
+                    "y": 239,
+                    "scaleX": 0.35,
+                    "scaleY": 0.3
+                }
+            ]
         }
     ],
     "plainObjects": [],

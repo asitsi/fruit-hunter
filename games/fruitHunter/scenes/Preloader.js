@@ -117,6 +117,16 @@ export default class Preloader extends Phaser.Scene {
             "asset-pack-console",
             "/game-assets/fruitCatcher/asset-pack-fruit-catcher-console.json"
         );
+
+        this.load.pack(
+            "asset-pack-pvp-sounds",
+            "/game-assets/pvp/asset-pack-pvp-sounds.json"
+        );
+
+        this.load.pack(
+            "asset-pack-fruite-hunter-sounds",
+            "/game-assets/pvp/asset-pack-pvp-sounds.json"
+        );
     }
 
     create() {
