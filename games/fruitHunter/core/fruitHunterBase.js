@@ -154,7 +154,6 @@ export default class fruitHunterBase extends Phaser.Scene {
     }
 
     restartGame() {
-        console.log("restartGame");
         this.container_fruit_hunter_score.setVisible(false);
         // Pass a flag to skip preview on retry
         this.scene.restart({ skipPreview: true });

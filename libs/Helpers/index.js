@@ -32,6 +32,7 @@ const isIOSWebView = () => {
 const IS_ANDROID = isAndroidWebView();
 export const IS_IOS = isIOSWebView();
 
+
 export const onExitGameOnHost = () => {
     if (IS_ANDROID) {
         return WebNativeInterface.onExitGame();
@@ -41,7 +42,7 @@ export const onExitGameOnHost = () => {
             keyValuePair
         );
     } else {
-        // alert("Could't detect host os");
+        window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'EXIT_GAME' }));
     }
 };
 
