@@ -12,6 +12,7 @@ export default class fruitHunterBase extends Phaser.Scene {
         this.cursorKey = null;
         this.gameOver = false;
         this.gameStarted = false;
+        this.pointerDirection = 0; // -1 left, 1 right, 0 none
     }
 
     glowEffect(gameObject) {
@@ -48,6 +49,30 @@ export default class fruitHunterBase extends Phaser.Scene {
         this.cursorKey = this.input.keyboard.createCursorKeys();
     }
 
+    setupTouchControls() {
+        // Convert touches into left/right intents based on screen halves
+        const resolveDirection = (pointer) => {
+            if (!pointer) return 0;
+            const mid = this.scale.width / 2;
+            return pointer.x < mid ? -1 : 1;
+        };
+
+        this.input.on("pointerdown", (pointer) => {
+            this.pointerDirection = resolveDirection(pointer);
+        });
+        this.input.on("pointermove", (pointer) => {
+            if (pointer.isDown) {
+                this.pointerDirection = resolveDirection(pointer);
+            }
+        });
+        this.input.on("pointerup", () => {
+            this.pointerDirection = 0;
+        });
+        this.input.on("gameout", () => {
+            this.pointerDirection = 0;
+        });
+    }
+
     showPreview() {
         this.fruit_hunter_preview_container.setVisible(true);
         if (this.fruit_hunter_preview_description?.setWordWrapWidth) {
@@ -80,13 +105,14 @@ export default class fruitHunterBase extends Phaser.Scene {
         this.glowEffect(this.fruit_hunter_basket_1);
         this.addPhysics(this.fruit_hunter_basket_1);
         this.addCursorKey();
+        this.setupTouchControls();
 
         // Show preview only on first load (not on retry)
         if (this.skipPreview) {
             this.startGameplay();
         } else {
             this.showPreview();
-            this.time.delayedCall(4000, this.startGameplay, [], this);
+            this.time.delayedCall(8000, this.startGameplay, [], this);
         }
 
         // Register interactions for end-of-game UI buttons
@@ -174,9 +200,14 @@ export default class fruitHunterBase extends Phaser.Scene {
         if (this.timedEvent.getRemaining() <= 0) {
             this.handleGameExit();
         }
-        if (!this.cursorKey) return;
-        const leftDown = this.cursorKey.left && this.cursorKey.left.isDown;
-        const rightDown = this.cursorKey.right && this.cursorKey.right.isDown;
+        // Keyboard state
+        const leftKeyDown = this.cursorKey && this.cursorKey.left && this.cursorKey.left.isDown;
+        const rightKeyDown = this.cursorKey && this.cursorKey.right && this.cursorKey.right.isDown;
+        // Touch state
+        const leftTouchDown = this.pointerDirection === -1;
+        const rightTouchDown = this.pointerDirection === 1;
+        const leftDown = !!leftKeyDown || leftTouchDown;
+        const rightDown = !!rightKeyDown || rightTouchDown;
         /** @type {Phaser.Physics.Arcade.Body} */
         const body = this.fruit_hunter_basket_1 && this.fruit_hunter_basket_1.body;
         if (!body) return;
