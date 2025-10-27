@@ -1,6 +1,6 @@
 
 // You can write more code here
-import { getCookieValue } from "@/libs/Helpers";
+import { getQueryParam } from "@/libs/Helpers";
 
 /* START OF COMPILED CODE */
 
@@ -39,8 +39,8 @@ export default class Boot extends Phaser.Scene {
     }
 
 	init() {
-        this.activeConsole =
-            getCookieValue("active_console") || "fruitCatcherMobile";
+		// Read active console from URL query param `active_console`
+		this.activeConsole = getQueryParam("active_console", "fruitCatcherMobile");
     }
 
 	create() {

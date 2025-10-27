@@ -44,3 +44,13 @@ export const onExitGameOnHost = () => {
         // alert("Could't detect host os");
     }
 };
+
+export const getQueryParam = (key, defaultValue = null) => {
+    try {
+        if (typeof window === "undefined") return defaultValue;
+        const params = new URLSearchParams(window.location.search);
+        return params.get(key) ?? defaultValue;
+    } catch {
+        return defaultValue;
+    }
+};

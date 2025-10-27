@@ -98,6 +98,34 @@ export default class fruitCatcherMobile extends fruitHunterBase {
 		fruit_hunter_back_to_home.scaleY = 0.3;
 		container_fruit_hunter_score.add(fruit_hunter_back_to_home);
 
+		// fruit_hunter_preview_container
+		const fruit_hunter_preview_container = this.add.container(1189, 550);
+		fruit_hunter_preview_container.visible = false;
+
+		// rectangle_1
+		const rectangle_1 = this.add.rectangle(0, 0, 128, 128);
+		rectangle_1.scaleX = 19;
+		rectangle_1.scaleY = 9;
+		rectangle_1.isFilled = true;
+		rectangle_1.fillColor = 15568051;
+		rectangle_1.fillAlpha = 0.7;
+		fruit_hunter_preview_container.add(rectangle_1);
+
+		// fruit_hunter_preview_title
+		const fruit_hunter_preview_title = this.add.text(-74, -256, "", {});
+		fruit_hunter_preview_title.setOrigin(0.5, 0.5);
+		fruit_hunter_preview_title.text = "Crazy Candy Chase";
+		fruit_hunter_preview_title.setStyle({ "fontFamily": "Bungee-Regular", "fontSize": "120px", "stroke": "#043d8c", "strokeThickness": 10 });
+		fruit_hunter_preview_container.add(fruit_hunter_preview_title);
+
+		// fruit_hunter_preview_description
+		const fruit_hunter_preview_description = this.add.text(-59, 9, "", {});
+		fruit_hunter_preview_description.setOrigin(0.5, 0.5);
+		fruit_hunter_preview_description.text = "Time is ticking—grab every candy in sight! React fast, rack up points, and rule the candy-catching arena.";
+		fruit_hunter_preview_description.setStyle({ "fontSize": "80px", "stroke": "#92c024", "strokeThickness": 7 });
+		fruit_hunter_preview_description.setLineSpacing(5);
+		fruit_hunter_preview_container.add(fruit_hunter_preview_description);
+
 		this.fruit_hunter_basket_1 = fruit_hunter_basket_1;
 		this.fruit_hunter_score = fruit_hunter_score;
 		this.fruit_hunter_score_text = fruit_hunter_score_text;
@@ -108,6 +136,9 @@ export default class fruitCatcherMobile extends fruitHunterBase {
 		this.fruit_hunter_retry_game = fruit_hunter_retry_game;
 		this.fruit_hunter_back_to_home = fruit_hunter_back_to_home;
 		this.container_fruit_hunter_score = container_fruit_hunter_score;
+		this.fruit_hunter_preview_title = fruit_hunter_preview_title;
+		this.fruit_hunter_preview_description = fruit_hunter_preview_description;
+		this.fruit_hunter_preview_container = fruit_hunter_preview_container;
 
 		this.events.emit("scene-awake");
 	}
@@ -132,6 +163,12 @@ export default class fruitCatcherMobile extends fruitHunterBase {
 	fruit_hunter_back_to_home;
 	/** @type {Phaser.GameObjects.Container} */
 	container_fruit_hunter_score;
+	/** @type {Phaser.GameObjects.Text} */
+	fruit_hunter_preview_title;
+	/** @type {Phaser.GameObjects.Text} */
+	fruit_hunter_preview_description;
+	/** @type {Phaser.GameObjects.Container} */
+	fruit_hunter_preview_container;
 
 	/* START-USER-CODE */
 

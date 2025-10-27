@@ -2,11 +2,16 @@ import { getCookieValue, onExitGameOnHost, setCookieValue } from "@/libs/Helpers
 
 
 export default class fruitHunterBase extends Phaser.Scene {
+    init(data) {
+        // If coming from a retry, skip the preview screen
+        this.skipPreview = !!(data && data.skipPreview);
+    }
 
     initVariables() {
         this.score = 0;
         this.cursorKey = null;
         this.gameOver = false;
+        this.gameStarted = false;
     }
 
     glowEffect(gameObject) {
@@ -43,6 +48,19 @@ export default class fruitHunterBase extends Phaser.Scene {
         this.cursorKey = this.input.keyboard.createCursorKeys();
     }
 
+    showPreview() {
+        this.fruit_hunter_preview_container.setVisible(true);
+        if (this.fruit_hunter_preview_description?.setWordWrapWidth) {
+            this.fruit_hunter_preview_description.setWordWrapWidth(1900, true);
+        } else if (this.fruit_hunter_preview_description?.setStyle) {
+            this.fruit_hunter_preview_description.setStyle({ wordWrap: { width: 1900, useAdvancedWrap: true } });
+        }
+    }
+
+    hidePreview() {
+        this.fruit_hunter_preview_container.setVisible(false);
+    }
+
     registerTouchIterativeButtons() {
         this.fruit_hunter_retry_game.setInteractive();
         this.fruit_hunter_back_to_home.setInteractive();
@@ -61,9 +79,24 @@ export default class fruitHunterBase extends Phaser.Scene {
         this.initVariables();
         this.glowEffect(this.fruit_hunter_basket_1);
         this.addPhysics(this.fruit_hunter_basket_1);
-        // this.addPhysics(this.brown_don_png);
-        // this.addPhysics(this.candy_3_png);
         this.addCursorKey();
+
+        // Show preview only on first load (not on retry)
+        if (this.skipPreview) {
+            this.startGameplay();
+        } else {
+            this.showPreview();
+            this.time.delayedCall(4000, this.startGameplay, [], this);
+        }
+
+        // Register interactions for end-of-game UI buttons
+        this.registerTouchIterativeButtons();
+        this.defineBasicInteractions();
+    }
+
+    startGameplay() {
+        this.hidePreview();
+        this.gameStarted = true;
         this.candyFrame = this.textures.get("candy_spritesheet_1").getFrameNames();
         this.candyGroup = this.physics.add.group([]);
         this.candyAppearTimer = this.time.addEvent({
@@ -75,15 +108,10 @@ export default class fruitHunterBase extends Phaser.Scene {
 
         this.physics.add.overlap(this.fruit_hunter_basket_1, this.candyGroup, this.catchCandy, null, this);
 
-        this.timedEvent = this.time.delayedCall(30 *1000, this.handleGameExit, [], this);
-
-        // Register interactions for end-of-game UI buttons
-        this.registerTouchIterativeButtons();
-        this.defineBasicInteractions();
+        this.timedEvent = this.time.delayedCall(30 * 1000 + 1000, this.handleGameExit, [], this);
     }
 
     handleGameExit() {
-        console.log("game exit");
         this.timedEvent.destroy();
         this.gameOver = true;
         this.container_fruit_hunter_score.setVisible(true);
@@ -102,7 +130,8 @@ export default class fruitHunterBase extends Phaser.Scene {
     restartGame() {
         console.log("restartGame");
         this.container_fruit_hunter_score.setVisible(false);
-        this.scene.restart();
+        // Pass a flag to skip preview on retry
+        this.scene.restart({ skipPreview: true });
     }
 
     backToHome() {
@@ -134,6 +163,9 @@ export default class fruitHunterBase extends Phaser.Scene {
     }
 
     update() {
+        if (!this.gameStarted) {
+            return;
+        }
         if (this.gameOver) {
             this.fruit_hunter_basket_1.body.setVelocityX(0);
             return;

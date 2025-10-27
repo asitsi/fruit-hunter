@@ -183,6 +183,59 @@
                     "scaleY": 0.3
                 }
             ]
+        },
+        {
+            "type": "Container",
+            "id": "9fbc4924-3f61-4213-9c70-9cd7f17d7909",
+            "label": "fruit_hunter_preview_container",
+            "scope": "CLASS",
+            "x": 1189,
+            "y": 550,
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "2e2e2a32-5143-4152-b320-fc44813a7b7b",
+                    "label": "rectangle_1",
+                    "scaleX": 19,
+                    "scaleY": 9,
+                    "isFilled": true,
+                    "fillColor": "#ed8cb3",
+                    "fillAlpha": 0.7,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "7315e966-c8e1-4ed9-bf81-3182cd4e2a21",
+                    "label": "fruit_hunter_preview_title",
+                    "scope": "CLASS",
+                    "x": -74,
+                    "y": -256,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Crazy Candy Chase",
+                    "fontFamily": "Bungee-Regular",
+                    "fontSize": "120px",
+                    "stroke": "#043d8c",
+                    "strokeThickness": 10
+                },
+                {
+                    "type": "Text",
+                    "id": "af298ea8-a965-4283-9e72-769cd4453be1",
+                    "label": "fruit_hunter_preview_description",
+                    "scope": "CLASS",
+                    "x": -59,
+                    "y": 9,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Time is ticking—grab every candy in sight! React fast, rack up points, and rule the candy-catching arena.",
+                    "lineSpacing": 5,
+                    "fontSize": "80px",
+                    "stroke": "#92c024",
+                    "strokeThickness": 7
+                }
+            ]
         }
     ],
     "plainObjects": [],
